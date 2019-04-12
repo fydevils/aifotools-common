@@ -16,12 +16,8 @@ public class AspectjPlugin implements Plugin<Project> {
 
     void apply(Project project) {
         project.dependencies {
-            api 'org.aspectj:aspectjrt:1.8.9'
+            api 'org.aspectj:aspectjrt:1.9.2'
         }
-        final def log = project.logger
-        log.error "========================";
-        log.error "Aspectj切片开始编织Class!";
-        log.error "========================";
         project.android.libraryVariants.all { variant ->
             def javaCompile = variant.javaCompile
             javaCompile.doLast {

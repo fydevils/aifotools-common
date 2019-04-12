@@ -1,4 +1,4 @@
-package io.aifo.plugin.application.inject.util
+package io.aifo.plugin.inject.util
 
 
 import javassist.ClassPool
@@ -11,7 +11,7 @@ public class InjectUtil {
      * @param pool
      */
     static void importBaseClass(ClassPool pool) {
-        pool.importPackage(io.aifo.plugin.application.inject.util.InjectHelper.InjectAnnotation);
+        pool.importPackage(io.aifo.plugin.inject.util.InjectHelper.InjectAnnotation);
     }
 
     static String getSimpleName(CtMethod ctmethod) {

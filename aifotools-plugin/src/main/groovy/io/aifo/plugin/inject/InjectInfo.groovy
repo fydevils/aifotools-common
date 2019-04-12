@@ -1,4 +1,4 @@
-package io.aifo.plugin.application.inject
+package io.aifo.plugin.inject
 
 import javassist.CtClass
 import javassist.CtConstructor
@@ -6,8 +6,6 @@ import javassist.CtField
 import javassist.CtMethod
 import javassist.bytecode.annotation.Annotation
 import org.gradle.api.Project
-
-import java.lang.reflect.Constructor
 
 public class InjectInfo {
 

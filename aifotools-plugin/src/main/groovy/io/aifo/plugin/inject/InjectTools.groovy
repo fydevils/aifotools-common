@@ -1,6 +1,7 @@
-package io.aifo.plugin.application.inject
+package io.aifo.plugin.inject
 
-import io.aifo.plugin.application.inject.util.InjectUtil
+import io.aifo.plugin.inject.util.InjectHelper
+import io.aifo.plugin.inject.util.InjectUtil
 import javassist.ClassClassPath
 import javassist.ClassPool
 import javassist.CtClass
@@ -8,7 +9,6 @@ import javassist.CtConstructor
 import javassist.CtField
 import javassist.CtMethod
 import org.gradle.api.Project
-import io.aifo.plugin.application.inject.util.InjectHelper
 
 import java.lang.annotation.Annotation
 

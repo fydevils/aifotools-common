@@ -2,8 +2,8 @@ package io.aifo.plugin.application
 
 import com.android.build.api.transform.*
 import com.google.common.collect.Sets
-import io.aifo.plugin.application.inject.InjectTools
 import javassist.ClassPool
+import io.aifo.plugin.inject.InjectTools
 import org.apache.commons.io.FileUtils
 import org.gradle.api.Project
 

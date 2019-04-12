@@ -3,7 +3,6 @@ package io.aifo.api.apt;
 /**
  * Created by baixiaokang on 16/12/28.
  */
-
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

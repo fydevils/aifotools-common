@@ -2,10 +2,10 @@ package io.aifo.plugin.library
 
 import com.android.build.api.transform.*
 import com.google.common.collect.Sets
-import io.aifo.plugin.library.inject.InjectTools
 import javassist.ClassPool
 import org.apache.commons.io.FileUtils
 import org.gradle.api.Project
+import io.aifo.plugin.inject.InjectTools
 
 public class InjectTransform extends Transform {
 

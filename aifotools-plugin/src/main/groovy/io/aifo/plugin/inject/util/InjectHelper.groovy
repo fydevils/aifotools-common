@@ -1,23 +1,40 @@
-package io.aifo.plugin.library.inject.util
+package io.aifo.plugin.inject.util
 
-import io.aifo.plugin.library.inject.InjectInfo
+
 import javassist.CtMethod
 import javassist.CtNewMethod
 import javassist.bytecode.AnnotationsAttribute
 import javassist.bytecode.FieldInfo
 
-import java.lang.annotation.Annotation;
+import java.lang.annotation.Annotation
 
 public class InjectHelper {
 
     final static String InjectAnnotation = "io.aifo.api.javassist.Inject"
+
+    static def ON_CREATE = ['onCreate', "onActivityCreated"] as String[]
+    static def ON_DESTROY = 'onDestroy'
+
+    static def Activity_OnCreate = "\n" +
+            "    protected void onCreate(Bundle savedInstanceState) {\n" +
+            "        super.onCreate(savedInstanceState);\n";
+
+    static def Fragment_OnCreate = "public void onActivityCreated(Bundle savedInstanceState) {\n" +
+            "        super.onActivityCreated(savedInstanceState);"
+
+    static def Pre_Switch_Str = "public void call(Message msg) {\n" +
+            "switch (msg.what){\n"
+
+    static def Pre_OnDestroy = "  \n" +
+            "    protected void onDestroy() {\n" +
+            "        super.onDestroy();\n";
 
     /**
      * 处理BusInfo
      * @param mBusInfo
      * @param path
      */
-    static void initInject(InjectInfo injectInfo, String path) {
+    static void initInject(io.aifo.plugin.inject.InjectInfo injectInfo, String path) {
 
         if (injectInfo.clazz.isFrozen()) injectInfo.clazz.defrost()     //解冻
 
@@ -48,7 +65,7 @@ public class InjectHelper {
      * @param mBusInfo 事件信息
      * @return
      */
-    static String getInjectFieldStr(InjectInfo injectInfo) {
+    static String getInjectFieldStr(io.aifo.plugin.inject.InjectInfo injectInfo) {
 
         String CreateStr = "";
 
