@@ -11,14 +11,13 @@ import io.aifo.api.aspect.SingleClick;
 import io.aifo.api.javassist.Inject;
 import io.aifo.example.R;
 import io.aifo.example.entity.Persion;
+import io.aifo.gen0.InstanceFactory;
 
 
 public class MainActivity extends FragmentActivity implements View.OnClickListener {
 
-    private String a = null;
 
-    @Inject
-    Persion persion;
+    public static final String TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,13 +30,25 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     @SingleClick
     @Override
     public void onClick(View v) {
-      takeAPicture();
+        takeAPicture();
     }
 
     @Permission(Manifest.permission.CAMERA)
     private void takeAPicture() {
+        Log.i(TAG, "Go to take a picture");
+    }
+
+    @Inject
+    Persion persion;
+
+    private void textInject() {
         persion.school.printSchool();
     }
+
+    private void testInstanceFactory() throws InstantiationException, IllegalAccessException {
+        Persion persion = (Persion) InstanceFactory.create(Persion.class);
+    }
+
 
 
 }

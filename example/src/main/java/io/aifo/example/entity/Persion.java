@@ -11,7 +11,6 @@ public class Persion {
     public School school;
 
     public Persion(){
-
     }
     public void printSelf() {
         System.out.println("I got you here ;!");
