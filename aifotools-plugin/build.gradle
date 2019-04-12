@@ -1,0 +1,28 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+dependencies {
+    implementation gradleApi()//gradle sdk
+    implementation localGroovy()//groovy sdk
+    implementation 'com.android.tools.build:gradle:3.2.1'
+    implementation 'org.javassist:javassist:3.24.1-GA'
+    implementation 'org.aspectj:aspectjtools:1.9.2'
+//    implementation project(":aifotools-api")
+}
+
+uploadArchives {
+    repositories.mavenDeployer {
+        repository(url: uri('../repo'))
+        pom.groupId = 'io.aifo.plugin'
+        pom.artifactId = 'aifotools-plugin'
+        pom.version = '1.0.0'
+    }
+}
+
+sourceCompatibility = "8"
+targetCompatibility = "8"
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
