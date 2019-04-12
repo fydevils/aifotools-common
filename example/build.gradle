@@ -22,28 +22,11 @@ android {
         multiDexEnabled true
     }
 
-    //签名配置
-    signingConfigs {
-        debugConfig {
-            keyAlias "fouyou"
-            keyPassword "123456"
-            storeFile file("./key/foryou.key")
-            storePassword "123456"
-        }
-
-        releaseConfig {
-            keyAlias "fouyou"
-            keyPassword "123456"
-            storeFile file("./key/foryou.key")
-            storePassword "123456"
-        }
-    }
     buildTypes {
         debug {
             //64K
             minifyEnabled false
             zipAlignEnabled true
-            signingConfig signingConfigs.debugConfig
             debuggable true
         }
 
@@ -51,7 +34,6 @@ android {
             //64K
             minifyEnabled false
             zipAlignEnabled true
-            signingConfig signingConfigs.releaseConfig
             debuggable false
         }
     }

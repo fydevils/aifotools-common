@@ -13,7 +13,6 @@ public class App extends Application {
         MultiDex.install(base);
     }
 
-
     private static App app ;
     public static App getApp(){
         return app ;
